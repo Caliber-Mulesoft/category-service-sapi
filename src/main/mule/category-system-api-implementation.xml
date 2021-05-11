@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="get-all-categories" doc:id="8f540834-9a45-4de9-9923-391a76e7a61e" >
+		<http:request method="GET" doc:name="CaliburAPI - Category Service Request" doc:id="80680007-0c5d-487c-a5c6-591e62e88107" path="/category" config-ref="HTTP_Request_configuration"/>
+		<logger level="INFO" doc:name="Logger" doc:id="a1622005-5d74-4342-b3d5-d82209417473" />
+	</flow>
+	<flow name="get-category-by-id" doc:id="98bf3333-3af7-4772-89e9-ddb93a9b0157" >
+		<http:request method="GET" doc:name="CaliburAPI - Category Service Request" doc:id="e3a588c8-dd2c-457b-93b5-d4e9a84a1990" config-ref="HTTP_Request_configuration" path="/category/{id}">
+			<http:uri-params ><![CDATA[#[output application/java
+---
+{
+	id : attributes.uriParams.'id'
+}]]]></http:uri-params>
+		</http:request>
+		<logger level="INFO" doc:name="Logger" doc:id="f1bdc918-fed0-416f-b093-b158d638dae4" />
+	</flow>
+</mule>
