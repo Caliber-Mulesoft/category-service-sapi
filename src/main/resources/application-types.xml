@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="caliburCategory" format="json">
+      <types:shape format="weave" example="examples/caliburCategoryExample-1.json"><![CDATA[%dw 2.0
+
+type caliburCategory = {|
+  categoryId: Number {"typeId": "int"}, 
+  skillCategory: String, 
+  active: Boolean
+|} {"example": "{\\\"categoryId\\\":8,\\\"skillCategory\\\":\\\".NET\\\",\\\"active\\\":true}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+</types:mule>
