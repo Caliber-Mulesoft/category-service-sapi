@@ -4,10 +4,11 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="660505cf-2727-4dae-8e55-c79b0bb01051" >
-		<http:listener-connection host="0.0.0.0" port="8082" />
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="97e61875-2b4e-478e-a11a-373eb75c420c" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="165ba3a1-c0d6-45ac-8459-83b1ddf5822b" basePath="/mock/category" >
-		<http:request-connection protocol="HTTPS" host="caliber2-mock.revaturelabs.com" port="443" />
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="165ba3a1-c0d6-45ac-8459-83b1ddf5822b" basePath="${caliber.basepath}" >
+		<http:request-connection protocol="${caliber.protocol}" host="${caliber.host}" port="${caliber.port}" />
 	</http:request-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="a5fa445a-8ecb-41c7-a912-cc5ed0aebe27" file="config.yaml" />
 </mule>

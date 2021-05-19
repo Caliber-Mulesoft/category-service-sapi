@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<logger level="INFO" doc:name="Logger" doc:id="a1622005-5d74-4342-b3d5-d82209417473" />
 	</flow>
 	<flow name="get-category-by-id" doc:id="98bf3333-3af7-4772-89e9-ddb93a9b0157" >
-		<http:request method="GET" doc:name="CaliburAPI - Category Service Request" doc:id="e3a588c8-dd2c-457b-93b5-d4e9a84a1990" config-ref="HTTP_Request_configuration" path="/category/{id}">
+		<http:request method="GET" doc:name="CaliburAPI - Category Service Request" doc:id="e3a588c8-dd2c-457b-93b5-d4e9a84a1990" config-ref="HTTP_Request_configuration" path="${category.path}/{id}">
 			<http:uri-params ><![CDATA[#[output application/java
 ---
 {

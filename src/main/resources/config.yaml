@@ -1,0 +1,8 @@
+caliber:
+  port: "443"
+  host: "caliber2-mock.revaturelabs.com"
+  basepath: "/mock/category"
+  protocol: "HTTPS"
+
+category:
+  path: "/category"
