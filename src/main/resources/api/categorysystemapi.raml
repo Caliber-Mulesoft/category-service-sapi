@@ -1,0 +1,39 @@
+#%RAML 1.0
+title: Category System API
+
+description: Exposing endpoints from the category controller of the Caliber Legacy API
+
+baseUri: http://caliber-category-sapi.us-e2.cloudhub.io/api
+
+types:
+  category: !include datatypes/category.raml
+
+/category:
+  get:
+    displayName: Get All Categories
+    description: Retrieves a list of assessment category objects
+    responses:
+      200:
+        body:
+          application/json:
+            type: category[]
+            examples:
+              output: !include examples/categoryExample.raml
+
+/category/{id}:
+  get:
+    displayName: Get Category By ID
+    description: Retrieves assessment category object based on its unique ID
+    responses:
+      200:
+        body:
+         application/json:
+           type: category[]
+           examples:
+             output: !include examples/singleCategoryExample.raml
+  uriParameters:
+    id:
+      description: Represents unique category id
+      required: true
+      type: number
+      format: int
